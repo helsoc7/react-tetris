@@ -23,8 +23,7 @@ jobs:
 
 
     - name: Build and push Docker image
-      run: |
-        docker buildx create --use
-        docker buildx build --platform linux/amd64,linux/arm64 -t helenhaveloh/tetris-app --push .
-      env:
-        DOCKER_CLI_AARCH64: 1
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: helenhaveloh/react-tetris:0.0.1
