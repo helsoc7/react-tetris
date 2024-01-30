@@ -21,14 +21,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Extract Git Tag
-      id: extract_tag
-      run: echo "::set-output name=tag::$(echo $GITHUB_REF | awk 'BEGIN{FS="/"} {print $3}')"
 
     - name: Build and push Docker image
       run: |
-        docker buildx create --use
-        docker buildx build --platform linux/amd64,linux/arm64 -t your-dockerhub-username/tetris-app:${{ steps.extract_tag.outputs.tag }} .
-        docker push your-dockerhub-username/tetris-app:${{ steps.extract_tag.outputs.tag }}
+        docker push helenhaveloh/tetris-app
       env:
         DOCKER_CLI_AARCH64: 1
