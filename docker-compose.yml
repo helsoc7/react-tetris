@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   tetris-nginx:
-    image: tetris-nginx:latest # Benutzerdefinierter Image-Name
+    image: tetris-nginx:latest 
     build:
-      context: . # Dockerfile-Verzeichnis
-      dockerfile: Dockerfile # Name des Dockerfiles
+      context: . 
+      dockerfile: Dockerfile 
     ports:
-      - "80:80" # Port-Mapping HOST:CONTAINER
+      - "3000:80" 
     
